@@ -1,14 +1,12 @@
-import axios from "axios";
-
 //BE Render URL
-const api = axios.create({
-  baseURL: "https://aknaresh-ncnews.onrender.com/api",
-});
+const BASE_URL = "https://aknaresh-ncnews.onrender.com/api";
 
 export const getArticles = () => {
-  return api.get("/articles").then((response) => {
-    return response.data.articles;
-  });
+  return fetch(`${BASE_URL}/articles`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data.articles;
+    });
 };
-
-export default api;
