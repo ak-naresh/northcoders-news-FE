@@ -1,8 +1,8 @@
 //BE Render URL
-const BASE_URL = "https://aknaresh-ncnews.onrender.com/api";
+const API_URL = "https://aknaresh-ncnews.onrender.com/api";
 
-export const getArticles = () => {
-  return fetch(`${BASE_URL}/articles`)
+const getArticles = () => {
+  return fetch(`${API_URL}/articles`)
     .then((response) => {
       return response.json();
     })
@@ -10,3 +10,5 @@ export const getArticles = () => {
       return data.articles;
     });
 };
+
+export { getArticles };
