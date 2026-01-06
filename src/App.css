@@ -5,6 +5,12 @@
   font-family: "Times New Roman", sans-serif;
 }
 
+h2,
+body {
+  background-color: black;
+  color: whitesmoke;
+}
+
 .headerContainer {
   display: flex;
   align-items: center;
@@ -19,12 +25,6 @@ a:hover {
 h1,
 footer {
   color: orchid;
-}
-
-h2,
-body {
-  background-color: black;
-  color: whitesmoke;
 }
 
 h3 {
