@@ -19,26 +19,28 @@ function ArticlesList() {
         <h1>Articles </h1>
         <p>(click title to view Article)</p>
 
-        {articles.map((article) => {
-          return (
-            <ul key={article.article_id}>
-              <img src={article.article_img_url} alt={article.title} />
-              <Link to={`/articles/${article.article_id}`}>
-                <h3>{article.title}</h3>
-              </Link>
-              <p>
-                Published on:
-                {new Date(article.created_at).toLocaleDateString()} || Author:{" "}
-                {article.author}
-              </p>
-              <p>Topic: {article.topic}</p>
-              <p>
-                Votes: {article.votes} || Comments: {article.comment_count}
-              </p>
-              <hr />
-            </ul>
-          );
-        })}
+        <ul>
+          {articles.map((article) => {
+            return (
+              <li key={article.article_id}>
+                <img src={article.article_img_url} alt={article.title} />
+                <Link to={`/articles/${article.article_id}`}>
+                  <h3>{article.title}</h3>
+                </Link>
+                <p>
+                  Published on:
+                  {new Date(article.created_at).toLocaleDateString()} || Author:{" "}
+                  {article.author}
+                </p>
+                <p>Topic: {article.topic}</p>
+                <p>
+                  Votes: {article.votes} || Comments: {article.comment_count}
+                </p>
+                <hr />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
 }
