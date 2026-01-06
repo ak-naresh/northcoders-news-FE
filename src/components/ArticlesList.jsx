@@ -26,14 +26,15 @@ function ArticlesList() {
               <Link to={`/articles/${article.article_id}`}>
                 <h3>{article.title}</h3>
               </Link>
-              <p>Author: {article.author}</p>
               <p>
                 Published on:
-                {new Date(article.created_at).toLocaleDateString()}
+                {new Date(article.created_at).toLocaleDateString()} || Author:{" "}
+                {article.author}
               </p>
               <p>Topic: {article.topic}</p>
-              <p>Votes: {article.votes}</p>
-              <p>Comments: {article.comment_count}</p>
+              <p>
+                Votes: {article.votes} || Comments: {article.comment_count}
+              </p>
               <hr />
             </ul>
           );
