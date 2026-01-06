@@ -29,7 +29,7 @@ function ArticlesList() {
               <p>Topic: {article.topic}</p>
               <p>Votes: {article.votes}</p>
               <p>Comments: {article.comment_count}</p>
-              <p>_______________________</p>
+              <hr />
             </div>
           );
         })}
