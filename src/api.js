@@ -20,4 +20,5 @@ const displayArticle = (article_id) => {
       return data.article;
     });
 };
+
 export { getArticles, displayArticle };
