@@ -1,13 +1,13 @@
+import Header from "./components/Header";
+import Main from "./components/Main";
+
 import "./App.css";
-import ArticlesList from "./components/ArticlesList";
 
 function App() {
   return (
     <div>
-      <h1>NC News</h1>
-      <main>
-        <ArticlesList />
-      </main>
+      <Header />
+      <Main />
     </div>
   );
 }

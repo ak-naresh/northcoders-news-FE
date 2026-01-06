@@ -15,10 +15,12 @@ function ArticlesList() {
   if (isLoading === false)
     return (
       <div>
-        <h2>All Articles</h2>
+        <h1>Articles </h1>
+        <p>(click title to view Article)</p>
+
         {articles.map((article) => {
           return (
-            <div>
+            <ul key={article.article_id}>
               <img src={article.article_img_url} alt={article.title} />
               <h3>{article.title}</h3>
               <p>Author: {article.author}</p>
@@ -30,7 +32,7 @@ function ArticlesList() {
               <p>Votes: {article.votes}</p>
               <p>Comments: {article.comment_count}</p>
               <hr />
-            </div>
+            </ul>
           );
         })}
       </div>

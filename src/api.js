@@ -11,4 +11,13 @@ const getArticles = () => {
     });
 };
 
-export { getArticles };
+const displayArticle = (article_id) => {
+  return fetch(`${API_URL}/articles/${article_id}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data.article;
+    });
+};
+export { getArticles, displayArticle };
