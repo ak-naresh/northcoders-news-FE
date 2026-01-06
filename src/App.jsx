@@ -1,14 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Main from "./components/Main";
-
+import ArticlesList from "./components/ArticlesList";
+import IndividualArticle from "./components/IndividualArticle";
 import "./App.css";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Main />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ArticlesList />} />
+          <Route path="/articles/:article_id" element={<IndividualArticle />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

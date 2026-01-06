@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { displayArticle } from "../api";
 
-function IndividualArticle({ article_id }) {
+function IndividualArticle() {
+  const { article_id } = useParams();
   const [article, setArticle] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  //Extracted URLarticle_id to fetch article data
   useEffect(() => {
-    displayArticle(article_id).then((articleData) => {
-      setArticle(articleData);
+    displayArticle(article_id).then((article) => {
+      setArticle(article);
       setIsLoading(false);
     });
   }, [article_id]);
@@ -23,8 +26,9 @@ function IndividualArticle({ article_id }) {
           {new Date(article.created_at).toLocaleDateString()}
         </p>
         <img src={article.article_img_url} alt={article.title} />
+        <p>{article.body}</p>
         <p>
-          Topic: {article.topic} - Votes: {article.votes} - Comments:{" "}
+          Topic: {article.topic} - Votes: {article.votes} - Comments:
           {article.comment_count}
         </p>
       </div>
