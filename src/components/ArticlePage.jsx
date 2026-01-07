@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { displayIndividualArticle } from "../api";
 
-function IndividualArticle() {
+import { getArticle } from "../api";
+import CommentList from "./CommentList";
+
+function ArticlePage() {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   //Extracted URLs article_id to fetch article-data
   useEffect(() => {
-    displayIndividualArticle(article_id).then((article) => {
+    getArticle(article_id).then((article) => {
       setArticle(article);
       return setIsLoading(false);
     });
@@ -19,18 +21,24 @@ function IndividualArticle() {
     return <h2 className="loader">Loading… </h2>;
   }
 
+  //console.log(article);
+
   return (
     <div>
-      <h2>{article.title}</h2>
-      <hr></hr>
-      <img src={article.article_img_url} alt={article.title} />
-      <p>{article.body}</p>
-      <p>
+      <h2>
+        <u>{article.title}</u>
+      </h2>
+      <h4>
         Topic: {article.topic} - Author: {article.author} - Published on:{" "}
         {new Date(article.created_at).toLocaleDateString()}
-      </p>
+      </h4>
+      <img src={article.article_img_url} alt={article.title} />
+      <p>{article.body}</p>
+
+      <hr />
+      <CommentList article_id={article.article_id} />
     </div>
   );
 }
 
-export default IndividualArticle;
+export default ArticlePage;

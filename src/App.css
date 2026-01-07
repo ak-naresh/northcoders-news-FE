@@ -4,16 +4,15 @@
   text-align: center;
 }
 
-h1,
-footer {
-  color: lightpink;
-}
-
 h2,
-.loader {
+h4,
+h5,
+footer {
   color: orchid;
 }
 
+.loader,
+h1,
 h3,
 body {
   color: whitesmoke;
@@ -26,11 +25,12 @@ body {
 }
 
 a:hover {
-  background-color: lightpink;
+  background-color: purple;
   cursor: pointer;
   display: block;
 }
 
-.articlePreview {
+.articlePreview,
+.comment {
   list-style-type: none;
 }

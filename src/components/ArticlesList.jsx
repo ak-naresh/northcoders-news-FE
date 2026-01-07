@@ -20,9 +20,7 @@ function ArticlesList() {
 
   return (
     <div>
-      <h1>Articles </h1>
-      <p>(click title to view Article)</p>
-
+      <h1>Articles </h1> <h4>(click title to view Article)</h4>
       <ul>
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} article={article} />;
