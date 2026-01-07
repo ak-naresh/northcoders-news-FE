@@ -14,6 +14,10 @@ function ArticlesList() {
     });
   }, []);
 
+  if (isLoading) {
+    return <h2 className="loader">Loading… </h2>;
+  }
+
   if (isLoading === false)
     return (
       <div>

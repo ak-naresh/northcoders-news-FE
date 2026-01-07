@@ -4,9 +4,19 @@
   text-align: center;
 }
 
+h1,
+footer {
+  color: orchid;
+}
+
 h2,
 body {
   color: whitesmoke;
+}
+
+h3,
+.loader {
+  color: lightpink;
 }
 
 .headerContainer {
@@ -18,13 +28,4 @@ body {
 a:hover {
   background-color: lightpink;
   cursor: pointer;
-}
-
-h1,
-footer {
-  color: orchid;
-}
-
-h3 {
-  color: lightpink;
 }
