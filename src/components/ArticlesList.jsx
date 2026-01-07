@@ -18,19 +18,18 @@ function ArticlesList() {
     return <h2 className="loader">Loading… </h2>;
   }
 
-  if (isLoading === false)
-    return (
-      <div>
-        <h1>Articles </h1>
-        <p>(click title to view Article)</p>
+  return (
+    <div>
+      <h1>Articles </h1>
+      <p>(click title to view Article)</p>
 
-        <ul>
-          {articles.map((article) => {
-            return <ArticleCard key={article.article_id} article={article} />;
-          })}
-        </ul>
-      </div>
-    );
+      <ul>
+        {articles.map((article) => {
+          return <ArticleCard key={article.article_id} article={article} />;
+        })}
+      </ul>
+    </div>
+  );
 }
 
 export default ArticlesList;

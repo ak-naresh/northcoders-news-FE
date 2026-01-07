@@ -19,19 +19,18 @@ function IndividualArticle() {
     return <h2 className="loader">Loading… </h2>;
   }
 
-  if (isLoading === false)
-    return (
-      <div>
-        <h2>{article.title}</h2>
-        <hr></hr>
-        <img src={article.article_img_url} alt={article.title} />
-        <p>{article.body}</p>
-        <p>
-          Topic: {article.topic} - Author: {article.author} - Published on:{" "}
-          {new Date(article.created_at).toLocaleDateString()}
-        </p>
-      </div>
-    );
+  return (
+    <div>
+      <h2>{article.title}</h2>
+      <hr></hr>
+      <img src={article.article_img_url} alt={article.title} />
+      <p>{article.body}</p>
+      <p>
+        Topic: {article.topic} - Author: {article.author} - Published on:{" "}
+        {new Date(article.created_at).toLocaleDateString()}
+      </p>
+    </div>
+  );
 }
 
 export default IndividualArticle;
