@@ -6,12 +6,12 @@
 
 h1,
 footer {
-  color: orchid;
+  color: lightpink;
 }
 
 h2,
 .loader {
-  color: lightpink;
+  color: orchid;
 }
 
 h3,
@@ -28,6 +28,7 @@ body {
 a:hover {
   background-color: lightpink;
   cursor: pointer;
+  display: block;
 }
 
 .articlePreview {
