@@ -22,16 +22,14 @@ function IndividualArticle() {
   if (isLoading === false)
     return (
       <div>
-        <h3>{article.title}</h3>
+        <h2>{article.title}</h2>
         <hr></hr>
-        <p>Author: {article.author}</p>
-        <p>
-          Published on:
-          {new Date(article.created_at).toLocaleDateString()}
-        </p>
         <img src={article.article_img_url} alt={article.title} />
         <p>{article.body}</p>
-        <p>Topic: {article.topic}</p>
+        <p>
+          Topic: {article.topic} - Author: {article.author} - Published on:{" "}
+          {new Date(article.created_at).toLocaleDateString()}
+        </p>
       </div>
     );
 }

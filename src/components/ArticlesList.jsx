@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getArticles } from "../api";
+import ArticleCard from "./ArticleCard";
 
 function ArticlesList() {
   const [articles, setArticles] = useState([]);
@@ -25,24 +25,7 @@ function ArticlesList() {
 
         <ul>
           {articles.map((article) => {
-            return (
-              <li key={article.article_id} className="articleItem">
-                <img src={article.article_img_url} alt={article.title} />
-                <Link to={`/articles/${article.article_id}`}>
-                  <h3>{article.title}</h3>
-                </Link>
-                <p>
-                  Published on:
-                  {new Date(article.created_at).toLocaleDateString()} || Author:{" "}
-                  {article.author}
-                </p>
-                <p>Topic: {article.topic}</p>
-                <p>
-                  Votes: {article.votes} || Comments: {article.comment_count}
-                </p>
-                <hr />
-              </li>
-            );
+            return <ArticleCard key={article.article_id} article={article} />;
           })}
         </ul>
       </div>

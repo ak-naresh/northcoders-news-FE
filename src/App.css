@@ -10,13 +10,13 @@ footer {
 }
 
 h2,
-body {
-  color: whitesmoke;
+.loader {
+  color: lightpink;
 }
 
 h3,
-.loader {
-  color: lightpink;
+body {
+  color: whitesmoke;
 }
 
 .headerContainer {
@@ -30,6 +30,6 @@ a:hover {
   cursor: pointer;
 }
 
-.articleItem {
+.articlePreview {
   list-style-type: none;
 }
