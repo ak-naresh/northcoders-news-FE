@@ -10,11 +10,14 @@ function IndividualArticle() {
   //Extracted URLarticle_id to fetch article data
   useEffect(() => {
     displayArticle(article_id).then((article) => {
-      return setArticle(article).then(() => {
-        return setIsLoading(false);
-      });
+      setArticle(article);
+      return setIsLoading(false);
     });
   }, [article_id]);
+
+  if (isLoading) {
+    return <h2 className="loader">Loading… </h2>;
+  }
 
   if (isLoading === false)
     return (
