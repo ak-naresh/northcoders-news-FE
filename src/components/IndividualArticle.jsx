@@ -10,8 +10,9 @@ function IndividualArticle() {
   //Extracted URLarticle_id to fetch article data
   useEffect(() => {
     displayArticle(article_id).then((article) => {
-      setArticle(article);
-      setIsLoading(false);
+      return setArticle(article).then(() => {
+        return setIsLoading(false);
+      });
     });
   }, [article_id]);
 
