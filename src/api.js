@@ -11,7 +11,7 @@ const getArticles = () => {
     });
 };
 
-const displayArticle = (article_id) => {
+const displayIndividualArticle = (article_id) => {
   return fetch(`${API_URL}/articles/${article_id}`)
     .then((response) => {
       return response.json();
@@ -21,4 +21,4 @@ const displayArticle = (article_id) => {
     });
 };
 
-export { getArticles, displayArticle };
+export { getArticles, displayIndividualArticle };

@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { displayArticle } from "../api";
+import { displayIndividualArticle } from "../api";
 
 function IndividualArticle() {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  //Extracted URLarticle_id to fetch article data
+  //Extracted URLs article_id to fetch article-data
   useEffect(() => {
-    displayArticle(article_id).then((article) => {
+    displayIndividualArticle(article_id).then((article) => {
       setArticle(article);
       return setIsLoading(false);
     });
