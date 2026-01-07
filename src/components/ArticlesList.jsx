@@ -26,7 +26,7 @@ function ArticlesList() {
         <ul>
           {articles.map((article) => {
             return (
-              <li key={article.article_id}>
+              <li key={article.article_id} className="articleItem">
                 <img src={article.article_img_url} alt={article.title} />
                 <Link to={`/articles/${article.article_id}`}>
                   <h3>{article.title}</h3>
