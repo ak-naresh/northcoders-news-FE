@@ -1,6 +1,6 @@
 function TopicsDropdown() {
   return (
-    <select>
+    <select id="topics-dropdown" name="topics">
       <option value="All Articles"> All Articles</option>
       <option value="coding"> Coding</option>
       <option value="football"> Football</option>
