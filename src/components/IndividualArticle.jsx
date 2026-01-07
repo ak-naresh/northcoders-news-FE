@@ -31,10 +31,7 @@ function IndividualArticle() {
         </p>
         <img src={article.article_img_url} alt={article.title} />
         <p>{article.body}</p>
-        <p>
-          Topic: {article.topic} - Votes: {article.votes} - Comments:
-          {article.comment_count}
-        </p>
+        <p>Topic: {article.topic}</p>
       </div>
     );
 }
