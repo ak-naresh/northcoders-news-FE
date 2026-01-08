@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getArticle, patchArticleVotes } from "../api";
 
 function ArticleVoter({ article_id }) {
-  const [votes, setVoteCount] = useState(0);
+  const [voteCount, setVoteCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -17,6 +17,8 @@ function ArticleVoter({ article_id }) {
   const handleVote = (increment) => {
     setVoteCount((currentVoteCount) => currentVoteCount + increment);
 
+    setError(null);
+
     //Error-handler
     patchArticleVotes(article_id, increment).catch((error) => {
       setVoteCount((currentVoteCount) => currentVoteCount - increment);
@@ -27,7 +29,7 @@ function ArticleVoter({ article_id }) {
   return (
     <div>
       <button onClick={() => handleVote(1)}>⬆️ </button>
-      <h4>Article Votes: {votes} (click arrow to vote)</h4>
+      <h4>Article Votes: {voteCount} (click arrow to vote)</h4>
       <button onClick={() => handleVote(-1)}>⬇️ </button>
     </div>
   );
