@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { getArticle, patchArticleVotes } from "../api";
+import { getArticle } from "../api";
 import CommentList from "./CommentList";
 
 function ArticlePage() {
@@ -20,12 +20,6 @@ function ArticlePage() {
   if (isLoading) {
     return <h2 className="loader">Loading… </h2>;
   }
-
-  const handleVote = (increment) => {
-    patchArticleVotes(article.article_id, increment).then((updatedArticle) => {
-      setArticle(updatedArticle);
-    });
-  };
 
   //console.log(article);
   //console.log(article.votes);

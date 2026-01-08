@@ -31,25 +31,4 @@ const getComments = (article_id) => {
     });
 };
 
-const patchArticleVotes = (article_id, inc_votes) => {
-  return fetch(`${API_URL}/articles/${article_id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ inc_votes: inc_votes }),
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      return data.article;
-    });
-};
-
-export {
-  getArticles,
-  getArticle,
-  getComments,
-  patchArticleVotes,
-};
+export { getArticles, getArticle, getComments };
