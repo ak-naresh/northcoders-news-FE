@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { getArticle } from "../api";
 import CommentList from "./CommentList";
+import ArticleVoter from "./ArticleVoter";
 
 function ArticlePage() {
   const { article_id } = useParams();
@@ -36,12 +37,7 @@ function ArticlePage() {
       <img src={article.article_img_url} alt={article.title} />
       <p>{article.body}</p>
       <hr />
-      <div>
-        <button onClick={() => handleVote(1)}>⬆️ </button>
-        <h4>Article Votes: {article.votes} (click arrow to vote)</h4>
-        <button onClick={() => handleVote(-1)}>⬇️ </button>
-      </div>
-      <div />
+      <ArticleVoter article_id={article.article_id} />
       <hr />
       <CommentList article_id={article.article_id} />
     </div>
