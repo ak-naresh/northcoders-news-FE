@@ -17,20 +17,27 @@ function ArticleVoter({ article_id }) {
   const handleVote = (increment) => {
     setVoteCount((currentVoteCount) => currentVoteCount + increment);
 
-    setError(null);
-
     //Error-handler
+    setError(null);
+    setIsLoading(true);
+
     patchArticleVotes(article_id, increment).catch((error) => {
       setVoteCount((currentVoteCount) => currentVoteCount - increment);
       setError("Vote was not received. Please try again!");
     });
   };
 
+  console.log("VoteCount:", voteCount);
+
   return (
     <div>
-      <button onClick={() => handleVote(1)}>⬆️ </button>
+      <button onClick={() => handleVote(1)} className="commentUpVoteButton">
+        ⬆️
+      </button>
       <h4>Article Votes: {voteCount} (click arrow to vote)</h4>
-      <button onClick={() => handleVote(-1)}>⬇️ </button>
+      <button onClick={() => handleVote(-1)} className="commentDownVoteButton">
+        ⬇️
+      </button>
     </div>
   );
 }

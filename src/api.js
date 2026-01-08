@@ -47,4 +47,26 @@ const patchArticleVotes = (article_id, inc_votes) => {
     });
 };
 
-export { getArticles, getArticle, getComments, patchArticleVotes };
+const postArticleComment = (article_id, username, body) => {
+  return fetch(`${API_URL}/articles/${article_id}/comments`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, body }),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      return data.comment;
+    });
+};
+
+export {
+  getArticles,
+  getArticle,
+  getComments,
+  patchArticleVotes,
+  postArticleComment,
+};

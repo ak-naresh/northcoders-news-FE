@@ -24,6 +24,11 @@ body {
   padding: 15px;
 }
 
+.commentSubmitButton {
+  color: purple;
+  display: block;
+}
+
 a:hover {
   background-color: purple;
   cursor: pointer;
