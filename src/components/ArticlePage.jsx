@@ -30,7 +30,7 @@ function ArticlePage() {
 
   return (
     <div>
-      <h2>
+      <h2 className="articlePageTitle">
         <u>{article.title}</u>
       </h2>
       <h4>

@@ -21,17 +21,31 @@ function CommentList({ article_id }) {
       });
   }, [article_id]);
 
+  const handleDeleteComment = (comment_id) => {
+    setComments((currentComments) => {
+      return currentComments.filter(
+        (comment) => comment.comment_id !== comment_id
+      );
+    });
+  };
+
   if (isLoading) {
     return <h2 className="loader">Loading… </h2>;
   }
 
   return (
     <div>
-      <h2> Comments ({comments.length}):</h2>
+      <h2 className="comments-header"> Comments ({comments.length}):</h2>
       <CommentInsert article_id={article_id} setComments={setComments} />
       <ol>
         {comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />;
+          return (
+            <CommentCard
+              key={comment.comment_id}
+              comment={comment}
+              onDelete={handleDeleteComment}
+            />
+          );
         })}
       </ol>
       <hr />

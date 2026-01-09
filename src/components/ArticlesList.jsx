@@ -28,9 +28,9 @@ function ArticlesList() {
     <div>
       <h1>Articles </h1> <h4>(click title to view Article)</h4>
       <ul>
-        {articles.map((article) => {
-          return <ArticleCard key={article.article_id} article={article} />;
-        })}
+        {articles.map((article) => (
+          <ArticleCard key={article.article_id} article={article} />
+        ))}
       </ul>
     </div>
   );
