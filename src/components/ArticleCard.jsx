@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function ArticleCard({ article }) {
   return (
-    <li key={article.article_id} className="articlePreview">
+    <li className="articlePreview">
       <img src={article.article_img_url} alt={article.title} />
       <Link to={`/articles/${article.article_id}`}>
         <h2>

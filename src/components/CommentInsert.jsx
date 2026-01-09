@@ -7,9 +7,6 @@ function CommentInsert({ article_id, setComments }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const username = "grumpy19";
-  //delete above line later
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -18,14 +15,14 @@ function CommentInsert({ article_id, setComments }) {
       return;
     }
 
-    console.log(newComment);
-    //delete above line later
-
     //Error-handler
     setError(null);
     setIsLoading(true);
 
-    postArticleComment(article_id, username, newComment)
+    const username = "grumpy19"; //hardcoded username for testing
+    const commentData = { username, body: newComment };
+
+    postArticleComment(article_id, commentData)
       .then((newComment) => {
         setComments((currentComments) => {
           return [newComment, ...currentComments];
@@ -38,22 +35,26 @@ function CommentInsert({ article_id, setComments }) {
       .catch((error) => {
         setError("Comment was not posted. Please try again!");
         setIsLoading(false);
-        return;
       });
   };
 
   return (
     <form onSubmit={handleSubmit} className="commentInsertTextbox">
-      <input
-        type="text"
-        placeholder="Type here"
-        value={newComment}
-        onChange={(event) => setNewComment(event.target.value)}
-      />
-      <button className="commentSubmitButton" type="commentSubmit">
+      <label htmlFor="comment-input">
+        <input
+          id="comment-input"
+          type="text"
+          required
+          placeholder="Type here"
+          value={newComment}
+          onChange={(event) => setNewComment(event.target.value)}
+        />
+      </label>
+      <button className="commentSubmitButton" type="submit">
         Post
       </button>
     </form>
   );
 }
+
 export default CommentInsert;

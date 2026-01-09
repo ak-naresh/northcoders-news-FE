@@ -6,12 +6,18 @@ import ArticleCard from "./ArticleCard";
 function ArticlesList() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getArticles().then((articlesData) => {
-      setArticles(articlesData);
-      return setIsLoading(false);
-    });
+    getArticles()
+      .then((articlesData) => {
+        setArticles(articlesData);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError("Articles could not be loaded. Please try again!");
+        setIsLoading(false);
+      });
   }, []);
 
   if (isLoading) {

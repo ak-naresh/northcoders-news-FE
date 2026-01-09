@@ -8,4 +8,5 @@ function TopicsDropdown() {
     </select>
   );
 }
+
 export default TopicsDropdown;

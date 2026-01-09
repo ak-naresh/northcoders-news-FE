@@ -7,12 +7,18 @@ import CommentInsert from "./CommentInsert";
 function CommentList({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getComments(article_id).then((CommentList) => {
-      setComments(CommentList);
-      setIsLoading(false);
-    });
+    getComments(article_id)
+      .then((CommentList) => {
+        setComments(CommentList);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError("Comments could not be loaded. Please try again!");
+        setIsLoading(false);
+      });
   }, [article_id]);
 
   if (isLoading) {

@@ -47,13 +47,13 @@ const patchArticleVotes = (article_id, inc_votes) => {
     });
 };
 
-const postArticleComment = (article_id, username, body) => {
+const postArticleComment = (article_id, commentData) => {
   return fetch(`${API_URL}/articles/${article_id}/comments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ username, body }),
+    body: JSON.stringify(commentData),
   })
     .then((response) => {
       return response.json();
